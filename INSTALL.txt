@@ -1,0 +1,15 @@
+Noise Reduction
+===============
+
+* Install REAPER (any version) (http://www.reaper.fm/download.php)
+* Install the plugins under folder "plugins" for your operating system
+    * OSX: VST plugins go to /Library/Audio/Plugins/VST
+* Copy the REAPER session (the file ending in .RPP) to a folder of your choice. 
+
+NB: REAPER is free to try for 60 days of use, after that, you need to buy a license for 60 U$S
+
+Keyboard
+========
+
+* Install csound 6 (http://sourceforge.net/projects/csound/files/csound6/)
+* Install the app "ZaehmungenKeyb.app" to a folder of your choice.

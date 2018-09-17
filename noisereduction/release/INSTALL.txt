@@ -1,0 +1,11 @@
+Noise Reduction
+===============
+
+* Install REAPER (any version) (http://www.reaper.fm/download.php)
+* Install the vst plugin "volpedal1" for your platform
+    * OSX: VST plugins go to /Library/Audio/Plugins/VST
+    * linux: ~/.vst 
+* Copy the REAPER session (the file ending in .RPP) to a folder of your choice. 
+
+This vst allows to control the dynamics via an expression pedal after noise reduction,
+thus preserving the noise profile.

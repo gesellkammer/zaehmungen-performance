@@ -1,0 +1,4 @@
+pyliblo 
+cython >= 0.19
+rtmidi2 >= 0.5
+timer3
