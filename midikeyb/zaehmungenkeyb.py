@@ -29,12 +29,24 @@ if not exists_in_path("pd"):
     print("puredata was not found")
     sys.exit(-1)
 
-
 # setup
 
 def is_jack_running():
-    status = subprocess.call(['jack_control', 'status'])
-    return status == 0
+    if exists_in_path("jack_control"):
+        status = subprocess.call(['jack_control', 'status'])
+        if status == 0:
+            return True
+    else:
+        print("jack_control was not found. This doesn't look right")
+        if not exists_in_path("qjackctl"):
+            print("qjackctl was also not found. Please install that in order")
+            print("to control jack via dbus")
+            return False
+    try:
+        procs = subprocess.check_output(["pgrep", "-x", "jackd"]).splitlines()
+        return len(procs) > 0
+    except subprocess.CalledProcessError:
+        return False
 
 if not is_jack_running():
     print("Jack is not running. Please start it, then run this script again")
