@@ -1,4 +1,4 @@
-#N canvas 300 110 516 271 10;
+#N canvas 523 241 516 271 10;
 #X floatatom 175 29 4 0 100 0 - random-recv random-send, f 4;
 #X floatatom 175 57 4 0 1 0 - compress-recv compress-send, f 4;
 #X floatatom 152 95 4 -120 0 0 MIN_DB mindb-recv mindb-send, f 4;
@@ -12,7 +12,7 @@
 #N canvas 1 140 203 125 debug 0;
 #X msg -126 12 \; dumpstate bang \; openlog bang \;;
 #X restore 24 94 pd debug;
-#N canvas 975 152 864 564 oscin 1;
+#N canvas 975 152 864 564 oscin 0;
 #X obj 15 376 unpack f f;
 #X obj 15 398 + 96;
 #X obj 15 421 s soundlevel;
@@ -123,7 +123,7 @@ status pingback, f 90;
 #X connect 44 0 45 0;
 #X connect 45 0 42 0;
 #X restore 24 19 pd oscin;
-#N canvas 1165 158 662 722 oscout 1;
+#N canvas 1165 158 662 722 oscout 0;
 #X obj 368 354 loadbang;
 #X msg 429 415 connect localhost 7771;
 #X obj 15 284 r exit-send;
@@ -280,25 +280,25 @@ status pingback, f 90;
 #X connect 76 0 43 0;
 #X connect 77 0 11 0;
 #X restore 24 44 pd oscout;
-#N canvas 862 307 646 445 init 0;
+#N canvas 862 307 646 445 init 1;
 #X obj 14 14 loadbang;
 #X obj 422 32 delay 2000;
 #X obj 185 32 delay 200;
 #X msg 14 72 \; print-recv set ___ \; osc-ok 0 \; close-sub bang \;
 ;
-#X msg 185 73 \; ping-task 1 \; console-hide bang \; heartbeat-task
-1 \; osc-reconnect bang \;;
 #X msg 423 54 \; midiports-poll bang \; dumpstate bang \; osc-reconnect
 bang \;;
 #X obj 19 243 r close-sub;
 #X msg 19 267 \; pd-_ vis 0 \; pd-oscout vis 0 \; pd-oscin vis 0 \;
 pd-init vis 0 \; pd-debug vis 0 \;;
+#X msg 185 73 \; ping-task 1 \; heartbeat-task 1 \; osc-reconnect bang
+\;;
 #X connect 0 0 3 0;
 #X connect 0 0 1 0;
 #X connect 0 0 2 0;
-#X connect 1 0 5 0;
-#X connect 2 0 4 0;
-#X connect 6 0 7 0;
+#X connect 1 0 4 0;
+#X connect 2 0 7 0;
+#X connect 5 0 6 0;
 #X restore 24 68 pd init;
 #X obj 24 120 tgl 14 0 osc-ok-send osc-ok OSC-OK 17 7 0 10 -262144
 -1 -1 1 1;
@@ -309,7 +309,7 @@ pd-init vis 0 \; pd-debug vis 0 \;;
 #X obj 88 29 hsl 80 14 0 1 0 0 random-send random-recv RANDOM -1 7
 0 9 -228856 -1 -1 1900 1;
 #X obj 88 57 hsl 80 14 0 1 0 0 compress-send compress-recv COMPRESS
--1 7 0 9 -228856 -1 -1 1600 1;
+-1 7 0 9 -228856 -1 -1 3400 1;
 #X obj 140 155 bng 50 250 50 0 reset-send reset-recv RESET 8 24 0 12
 -257983 -262144 -1;
 #X symbolatom 259 68 35 0 0 0 MIDI midiports __, f 35;

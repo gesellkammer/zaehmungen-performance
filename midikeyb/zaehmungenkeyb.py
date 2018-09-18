@@ -2,9 +2,11 @@
 import time
 import os
 import sys
+import shutil
 import subprocess
 from zaehmungen import core
 import zaehmungen
+
 
 # Default configuration, it will be overridden by config.txt
 # if it exists (in the same directory as this file)
@@ -13,6 +15,22 @@ SR = 44100
 KSMPS = 64
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# check installation
+
+def exists_in_path(binary):
+    return shutil.which(binary) is not None
+
+if not exists_in_path("csound"):
+    print("csound was not found")
+    sys.exit(-1)
+
+if not exists_in_path("pd"):
+    print("puredata was not found")
+    sys.exit(-1)
+
+
+# setup
 
 def is_jack_running():
     status = subprocess.call(['jack_control', 'status'])
@@ -50,9 +68,11 @@ killmatching("csound")
 # puredata gui
 
 pdpatch = os.path.abspath("assets/zaehmungen.pd")
+assert os.path.exists(pdpatch)
 pdproc = subprocess.Popen(['pd', '-noaudio', '-nomidi', pdpatch])
 
 csoundpatch = os.path.abspath("assets/midikeyb.csd")
+assert os.path.exists(csoundpatch)
 csoundargs = [
     "csound",
     "-+rtaudio=jack",
