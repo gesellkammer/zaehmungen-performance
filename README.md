@@ -53,7 +53,7 @@ This will install all dependencies (csound, puredata for the gui, liblo for OSC)
 
 We assume that the system is configured to use jack
 
-1. Connect the keyboard
+1. Connect the keyboard, with an expression and a sustain pedal connected
 2. Start jack
 3. Connect the audio to the amplifier
 4. At the terminal (in the `midikeyb` folder)
@@ -63,3 +63,14 @@ We assume that the system is configured to use jack
 * This will start the csound-engine and a puredata patch for the gui 
 * Puredata is only used for gui (no audio)
 
+5. Configure midi
+   * With the patch running, click on "CONFIG"
+   * This should open the configuration file in a suitable text editor 
+   * Otherwise, open the file `~/.zaehmungen/userconfig.json`
+   * Modify the value for CC_gainchange to match the CC sent by the expression pedal
+   * Modify the value for CC_sustain to match the CC sent by the sustain pedal
+   * "volpedal_curve" is an exponential factor applied to the midi values to change 
+     the mapping between midi and dB gain. 
+6. Other customizations:
+   * RANDOM: this changes the randomness of the grains distribution
+   * COMPRESS: how much to compress audio. Adjust gain accordingly (`MAX_DB`, `MIN_DB`)
