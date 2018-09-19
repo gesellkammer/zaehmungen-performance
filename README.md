@@ -11,15 +11,18 @@ The signal path, to be read from top to bottom
     Loudspeaker x 3 (one loudspeaker per player, placed direct behind each player
     so that the signal is also audible by the player)
     
+![](pics/tapebow-flow.png)
 
 # Tapebow
 
 ![](pics/tapebow-video.jpg "Tapebow 1")
 
+[Video Demonstration](https://vimeo.com/96349330)
+
 A tapebow is simply a tape player (a walkman in most cases) in which the
 playhead has been mounted on a mute to be played by the bow. The bow-hair
 has been replaced by magnetic tape, with both channels containing the same
-audio material. The output of a tapebow is stereo
+audio material. The output of a tapebow is stereo!
 
 # Noise Reduction / Volume Pedal
 
