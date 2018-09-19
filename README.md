@@ -14,6 +14,8 @@ The signal path, to be read from top to bottom
 
 # Tapebow
 
+![](pics/tapebow-video.jpg "Tapebow 1")
+
 A tapebow is simply a tape player (a walkman in most cases) in which the
 playhead has been mounted on a mute to be played by the bow. The bow-hair
 has been replaced by magnetic tape, with both channels containing the same
